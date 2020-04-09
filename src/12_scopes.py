@@ -5,13 +5,18 @@
 x = 12
 
 def change_x():
+    global x
     x = 99
 
 change_x()
 
 # This prints 12. What do we have to modify in change_x() to get it to print 99?
 print(x)
-
+"""
+python `global` keyword : modify the variable outside of the current scope
+    - use `global` to read and write a global variable inside a function
+    - use of `global` outside a function has no effect
+"""
 
 # This nested function has a similar problem.
 
@@ -19,6 +24,7 @@ def outer():
     y = 120
 
     def inner():
+        nonlocal y
         y = 999
 
     inner()
@@ -30,3 +36,8 @@ def outer():
 
 
 outer()
+
+"""
+nonlocal : used in nested function whose local scope is not defined ==> variable can be neither in the local nor the global scope
+    - if we change value of nonlocal variable, the changes appear in the local variable
+"""

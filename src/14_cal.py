@@ -30,3 +30,31 @@ it should use today’s date to get the month and year.
 import sys
 import calendar
 from datetime import datetime
+
+# input --> 4 2015 ==> will print out a calendar for April in 2015
+# input --> 4 ==> print out April in 2020 (current year)
+# input --> none ==> print out April in 2020 (current year, current month)
+
+inputCal = input('which month and year?: ') # make default current year and current month
+print('You typed :', inputCal)
+
+today = datetime.today()
+curMon = today.month
+curYear = today.year
+# print(curMon, curYear)
+
+# if input is empty, use current Mon, Year variable
+if len(inputCal) == 0:
+    print(calendar.month(curYear, curMon))
+# if only 1 input which is month, use currentYear variable
+elif len(inputCal) == 1 or len(inputCal) == 2:
+    print(calendar.month(curYear, int(inputCal)))
+    # REFLECT : add input month is 10, 11, 12
+
+else:
+    # curMon = inputCal[:1]
+    # curYear = inputCal[2:]
+    # print(calendar.month(int(curYear), int(curMon)))
+    splited = inputCal.split()
+    print(calendar.month(int(splited[1]), int(splited[0])))
+    # REFLECT : for 10 2010 ==> slice where the space is
