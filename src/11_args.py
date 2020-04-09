@@ -24,6 +24,12 @@ def f2(*args):
         sum += x
     return sum
 
+"""
+def f2(*argv)
+    print(argv) # if you print, you will get a tuple containing all of arguments
+    return sum(argv)
+"""
+
 print(f2(1))                    # Should print 1
 print(f2(1, 3))                 # Should print 4
 print(f2(1, 4, -12))            # Should print -7
@@ -81,14 +87,16 @@ D.items() -> a set-like object providing a view on D's items
 def f4(**kwargs):
     for key, value in kwargs.items():
         print("key: %s, value: %s" %(key, value))
-
+    # print(kwargs) # will print a dictionary {"a": 12, "b": 30}
+    # for key in kwargs:
+        # print(f"key: {key}, value: {kwargs[key]})
 
 # Should print
 # key: a, value: 12
 # key: b, value: 30
 f4(a=12, b=30)
 
-# Should print
+# Shouldprint
 # key: city, value: Berkeley
 # key: population, value: 121240
 # key: founded, value: "March 23, 1868"

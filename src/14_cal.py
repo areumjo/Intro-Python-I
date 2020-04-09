@@ -35,6 +35,10 @@ from datetime import datetime
 # input --> 4 ==> print out April in 2020 (current year)
 # input --> none ==> print out April in 2020 (current year, current month)
 
+# in case you don't ask input, just use `sys.argv`
+args = sys.argv # it will give a list
+# print(args) # will print out like python3 14_cal.py 4 2020 ==> ['14_cal.py', '10', '2020']
+
 inputCal = input('which month and year?: ') # make default current year and current month
 print('You typed :', inputCal)
 
@@ -50,11 +54,9 @@ if len(inputCal) == 0:
 elif len(inputCal) == 1 or len(inputCal) == 2:
     print(calendar.month(curYear, int(inputCal)))
     # REFLECT : add input month is 10, 11, 12
-
 else:
-    # curMon = inputCal[:1]
-    # curYear = inputCal[2:]
-    # print(calendar.month(int(curYear), int(curMon)))
     splited = inputCal.split()
     print(calendar.month(int(splited[1]), int(splited[0])))
     # REFLECT : for 10 2010 ==> slice where the space is
+
+# maybe add error message if a user types somthing else
